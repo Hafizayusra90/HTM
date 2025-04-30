@@ -1,0 +1,41 @@
+@model IEnumerable<HTM.Models.Roomytype>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roomtypename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bedtype)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roomtypename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedtype)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Roomtypeid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Roomtypeid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Roomtypeid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
